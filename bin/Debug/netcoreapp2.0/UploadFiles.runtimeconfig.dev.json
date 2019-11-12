@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\esantos\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\esantos\\.nuget\\packages"
+    ]
+  }
+}

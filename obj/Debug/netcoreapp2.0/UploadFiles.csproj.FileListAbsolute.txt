@@ -1,0 +1,36 @@
+C:\Users\Desiree Dias\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.0\UploadFiles.deps.json
+C:\Users\Desiree Dias\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.0\UploadFiles.runtimeconfig.json
+C:\Users\Desiree Dias\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.0\UploadFiles.runtimeconfig.dev.json
+C:\Users\Desiree Dias\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.0\UploadFiles.dll
+C:\Users\Desiree Dias\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.0\UploadFiles.pdb
+C:\Users\Desiree Dias\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\UploadFiles.csproj.CoreCompileInputs.cache
+C:\Users\Desiree Dias\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\UploadFiles.AssemblyInfoInputs.cache
+C:\Users\Desiree Dias\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\UploadFiles.AssemblyInfo.cs
+C:\Users\Desiree Dias\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\UploadFiles.dll
+C:\Users\Desiree Dias\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\UploadFiles.pdb
+C:\Users\Desiree Dias\Desktop\UploadFiles\WebApplication3\bin\Debug\netcoreapp2.0\UploadFiles.deps.json
+C:\Users\Desiree Dias\Desktop\UploadFiles\WebApplication3\bin\Debug\netcoreapp2.0\UploadFiles.runtimeconfig.json
+C:\Users\Desiree Dias\Desktop\UploadFiles\WebApplication3\bin\Debug\netcoreapp2.0\UploadFiles.runtimeconfig.dev.json
+C:\Users\Desiree Dias\Desktop\UploadFiles\WebApplication3\bin\Debug\netcoreapp2.0\UploadFiles.dll
+C:\Users\Desiree Dias\Desktop\UploadFiles\WebApplication3\bin\Debug\netcoreapp2.0\UploadFiles.pdb
+C:\Users\Desiree Dias\Desktop\UploadFiles\WebApplication3\obj\Debug\netcoreapp2.0\UploadFiles.csprojResolveAssemblyReference.cache
+C:\Users\Desiree Dias\Desktop\UploadFiles\WebApplication3\obj\Debug\netcoreapp2.0\UploadFiles.csproj.CoreCompileInputs.cache
+C:\Users\Desiree Dias\Desktop\UploadFiles\WebApplication3\obj\Debug\netcoreapp2.0\UploadFiles.AssemblyInfoInputs.cache
+C:\Users\Desiree Dias\Desktop\UploadFiles\WebApplication3\obj\Debug\netcoreapp2.0\UploadFiles.AssemblyInfo.cs
+C:\Users\Desiree Dias\Desktop\UploadFiles\WebApplication3\obj\Debug\netcoreapp2.0\UploadFiles.dll
+C:\Users\Desiree Dias\Desktop\UploadFiles\WebApplication3\obj\Debug\netcoreapp2.0\UploadFiles.pdb
+C:\curriculo\Upload-Files-using-ASP.net-MVC\UploadFiles\WebApplication3\bin\Debug\netcoreapp2.0\appsettings.Development.json
+C:\curriculo\Upload-Files-using-ASP.net-MVC\UploadFiles\WebApplication3\bin\Debug\netcoreapp2.0\appsettings.json
+C:\curriculo\Upload-Files-using-ASP.net-MVC\UploadFiles\WebApplication3\bin\Debug\netcoreapp2.0\bower.json
+C:\curriculo\Upload-Files-using-ASP.net-MVC\UploadFiles\WebApplication3\bin\Debug\netcoreapp2.0\bundleconfig.json
+C:\curriculo\Upload-Files-using-ASP.net-MVC\UploadFiles\WebApplication3\bin\Debug\netcoreapp2.0\Properties\launchSettings.json
+C:\curriculo\Upload-Files-using-ASP.net-MVC\UploadFiles\WebApplication3\bin\Debug\netcoreapp2.0\UploadFiles.deps.json
+C:\curriculo\Upload-Files-using-ASP.net-MVC\UploadFiles\WebApplication3\bin\Debug\netcoreapp2.0\UploadFiles.runtimeconfig.json
+C:\curriculo\Upload-Files-using-ASP.net-MVC\UploadFiles\WebApplication3\bin\Debug\netcoreapp2.0\UploadFiles.runtimeconfig.dev.json
+C:\curriculo\Upload-Files-using-ASP.net-MVC\UploadFiles\WebApplication3\bin\Debug\netcoreapp2.0\UploadFiles.dll
+C:\curriculo\Upload-Files-using-ASP.net-MVC\UploadFiles\WebApplication3\bin\Debug\netcoreapp2.0\UploadFiles.pdb
+C:\curriculo\Upload-Files-using-ASP.net-MVC\UploadFiles\WebApplication3\obj\Debug\netcoreapp2.0\UploadFiles.csprojAssemblyReference.cache
+C:\curriculo\Upload-Files-using-ASP.net-MVC\UploadFiles\WebApplication3\obj\Debug\netcoreapp2.0\UploadFiles.AssemblyInfoInputs.cache
+C:\curriculo\Upload-Files-using-ASP.net-MVC\UploadFiles\WebApplication3\obj\Debug\netcoreapp2.0\UploadFiles.AssemblyInfo.cs
+C:\curriculo\Upload-Files-using-ASP.net-MVC\UploadFiles\WebApplication3\obj\Debug\netcoreapp2.0\UploadFiles.dll
+C:\curriculo\Upload-Files-using-ASP.net-MVC\UploadFiles\WebApplication3\obj\Debug\netcoreapp2.0\UploadFiles.pdb
