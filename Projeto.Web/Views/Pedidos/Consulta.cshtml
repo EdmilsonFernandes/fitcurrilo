@@ -1,0 +1,75 @@
+﻿@model List < Projeto.Web.Models.AprovacaoPedidosViewModelConsulta>
+@{
+    ViewBag.Title = "Consulta";
+    ViewBag.SubTitle = "CPLAB";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@{
+    
+}
+
+
+<script src="~/Scripts/Tables/Data-menu.js"></script>
+
+
+<link href="~/AdminLTE/plugins/datatables/css/dataTables.bootstrap.css" rel="stylesheet" />
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title"> Relação dos produtos analisados pelo laboratório. </h3>
+            </div> 
+        </div>
+        <div class="box">
+           
+            <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th><small>Número da OF</small></th>
+                            <th>Data de Fabricação</th>
+                            <th>Data de Analise</th>
+                            <th>Número de Certificado</th>
+                            <th>Número OF de Laboratorio</th>
+                            <th>Nome do produto</th>
+                            <th>Quantidade KG</th>
+                            <th>Situação</th>
+                            <th>Atualizado por</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.NumeroOFProducao</td>
+                                <td>@item.DataFabricacao</td>
+                                <td>@item.DataAnalize</td>
+                                <td>@item.NumeroCertificado</td>
+                                <td>@item.NumeroOFLaboratorio</td>
+                                <td>@item.NomeProduto</td>
+                                <td>@item.QuantidadeKG KG</td>
+                                <td>@item.Situacao</td>
+                                <td>@item.AtualizadoPor</td>
+                                <td>
+                                    <a href="#" class="btn btn-sm btn-primary">Editar</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">Quantidades de Analises: @Model.Count</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="~/AdminLTE/plugins/datatables/js/jquery.dataTables.js"></script>
+    <script src="~/Scripts/Tables/Data-menu.js"></script>

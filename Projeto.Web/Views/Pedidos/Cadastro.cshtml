@@ -1,0 +1,100 @@
+﻿@model Projeto.Web.Models.AprovacaoPedidosViewModelCadastro
+
+@{
+    ViewBag.Title = "Cadastro";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<hr />
+@using (Html.BeginForm())
+{
+
+    <div class="box box-default ">
+        <div class="box-header with-border">
+            <h4 class="box-title">Para cadastrar uma nova analise informe os dados abaixo.</h4>
+        </div>
+    </div>
+
+    <div class="box box-default">
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NumeroOFProducao)<br />
+                        @Html.TextBoxFor(model => model.NumeroOFProducao, new { @class = "form-control", @placeholder = "Digite aqui" })
+                        @Html.ValidationMessageFor(model => model.NumeroOFProducao)
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DataFabricacao)<br />
+                        @Html.TextBoxFor(model => model.DataFabricacao, new { @class = "form-control", @type = "date", @placeholder = "dd/mm/yy" })
+                        @Html.ValidationMessageFor(model => model.DataFabricacao)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DataAnalise)<br />
+                        @Html.TextBoxFor(model => model.DataAnalise, new { @class = "form-control", @type = "date", @placeholder = "dd/mm/yy" })
+                        @Html.ValidationMessageFor(model => model.DataAnalise)
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NumeroCertificado)<br />
+                        @Html.TextBoxFor(model => model.NumeroCertificado, new { @class = "form-control", @placeholder = "Digite aqui" })
+                        @Html.ValidationMessageFor(model => model.NumeroCertificado)
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NumeroOFLaboratorio)<br />
+                        @Html.TextBoxFor(model => model.NumeroOFLaboratorio, new { @class = "form-control", @placeholder = "Digite aqui" })
+                        @Html.ValidationMessageFor(model => model.NumeroOFLaboratorio)
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NomeProduto)<br />
+                        @Html.TextBoxFor(model => model.NomeProduto, new { @class = "form-control", @placeholder = "Digite aqui" })
+                        @Html.ValidationMessageFor(model => model.NomeProduto)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.QuantidadeKG)<br />
+                        @Html.TextBoxFor(model => model.QuantidadeKG, new { @class = "form-control", @type = "number", @placeholder = "Digite aqui" })
+                        @Html.ValidationMessageFor(model => model.QuantidadeKG)
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Situacao)<br />
+                        @Html.TextBoxFor(model => model.Situacao, new { @class = "form-control", @placeholder = "Digite aqui" })
+                        @Html.ValidationMessageFor(model => model.Situacao)
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Observacao)<br />
+                        @Html.TextAreaFor(model => model.Observacao, new { @class = "form-control", @type = "number", @placeholder = "Digite aqui" })
+                        @Html.ValidationMessageFor(model => model.Observacao)
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        @ViewBag.Message
+                    </div>
+                    <input type="submit" value="Cadastrar Analise de Produto" class="btn btn-sm btn-success" />
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+}

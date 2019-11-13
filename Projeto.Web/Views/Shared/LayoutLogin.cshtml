@@ -1,0 +1,42 @@
+﻿@using Newtonsoft.Json
+@using Projeto.Web.Models
+@{
+    //capturando os dados em JSON do usuario autenticado..
+    string usuario = HttpContext.Current.User.Identity.Name;
+
+    //deserializar os dados de JSON para objeto..
+    var auth = JsonConvert.DeserializeObject<UsuarioAutenticado>(usuario);
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WebApplication</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <link href="~/AdminLTE/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/AdminLTE/plugins/ionicons/css/ionicons.css" rel="stylesheet" />
+    <link href="~/AdminLTE/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/AdminLTE/dist/css/admin-lte.css" rel="stylesheet" />
+    <link href="~/AdminLTE/dist/css/skins/skin-blue.css" rel="stylesheet" />
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="content content-wrapper">
+
+            <section class="content">
+                @RenderBody()
+            </section>
+        
+    </div>
+    <script src="~/AdminLTE/plugins/jquery/js/jQuery-2.1.4.min.js"></script>
+        @RenderSection("menu", required: false)
+        <script src="~/AdminLTE/bootstrap/js/bootstrap.js"></script>
+    <script src="~/AdminLTE/plugins/slimscroll/js/jquery.slimscroll.js"></script>
+    <script src="~/AdminLTE/plugins/fastclick/js/fastclick.js"></script>
+    <script src="~/Scripts/Shared/_Layout.js"></script>
+    <script src="~/AdminLTE/dist/js/app.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
