@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Modelagem de entidades", "0 - Modelagem de entidades", "{6F5F62AB-6382-4D74-A9F0-DF55750DF8B2}"
 EndProject
@@ -50,5 +50,8 @@ Global
 		{A0D4085C-4387-4678-AD03-598A4114B107} = {84986694-1C2D-4806-AC3F-E682A43B268A}
 		{C2C90D6B-39AD-4504-B8AF-48028C355BAD} = {8C93BA6F-D090-4384-9E26-345ADBC4A586}
 		{8267A0A4-C659-440B-8619-32D0E9F3B7D7} = {0CC1CCFE-CD6E-47F3-BC4B-42D0DDBE2562}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2FFFD9DA-C8D5-43B0-A103-CC1FE19619B9}
 	EndGlobalSection
 EndGlobal

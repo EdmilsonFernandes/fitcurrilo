@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Projeto.DAL.DataSource;
 using System.Data.Entity; //entityframework..
 
+
 namespace Projeto.DAL.Persistence
 {
     public class UsuarioDal : GenericDal<Usuario>
@@ -22,6 +23,7 @@ namespace Projeto.DAL.Persistence
                         .Count() > 0;
             }
         }
+
 
         //método para retornar um Usuario pelo login e senha..
         public Usuario FindByLoginSenha(string login, string senha)
@@ -40,5 +42,36 @@ namespace Projeto.DAL.Persistence
             }
         }
 
+
+        public List<Usuario> ListarUsuarios()
+        {
+            Conexao con = new Conexao();
+            
+            var listaUsuario = new List<Usuario>();
+
+            var query = from tbUsuario in con.Usuario
+                        join tbPerfil in con.Perfil on tbUsuario.IdPerfil equals tbPerfil.IdPerfil
+                        select new
+                        {
+                            tbUsuario.IdUsuario,
+                            tbUsuario.Nome,
+                            tbUsuario.Login,
+                            tbUsuario.IdPerfil,
+                            tbUsuario.Perfil,
+                        };
+
+            foreach (var result in query)
+            {
+                var usuario = new Usuario();
+
+                usuario.IdUsuario = result.IdUsuario;
+                usuario.Nome = result.Nome;
+                usuario.Login = result.Login;
+                usuario.Perfil = result.Perfil;
+                usuario.IdPerfil = result.IdPerfil;
+                listaUsuario.Add(usuario);
+            }
+            return listaUsuario;
+        }
     }
 }

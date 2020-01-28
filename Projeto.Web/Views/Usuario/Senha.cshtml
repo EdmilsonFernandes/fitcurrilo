@@ -1,0 +1,63 @@
+﻿@model Projeto.Web.Models.UsuarioAlterarSenha
+
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+
+        <h2>Alterar Senha</h2>
+
+        @if (TempData["Sucesso"] != null)
+        {
+            <div class="box-body">
+                <h4><span class="label alert-success">@TempData["Sucesso"]</span></h4>
+            </div>
+        }
+        @if (TempData["Falha"] != null)
+        {
+            <div class="box-body">
+                <h4><span class="label alert-danger">@TempData["Falha"]</span></h4>
+            </div>
+        }
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SenhaAntiga, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.SenhaAntiga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SenhaAntiga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SenhaNova, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.SenhaNova, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SenhaNova, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfirmaSenhaNova, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.ConfirmaSenhaNova, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ConfirmaSenhaNova, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Alterar Senha"
+                       class="btn btn-default" />
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <p class=ion-arrow-return-left> <a href="/Usuario/Perfil/@Model.Id">Voltar</a> </p>
+        </div>
+    </div>
+}

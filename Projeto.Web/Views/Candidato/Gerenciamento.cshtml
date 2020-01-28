@@ -1,0 +1,55 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Gerenciamento de Currículos</h3><br>
+        <div class="box-tools pull-right">
+            <span class="label label-primary">FITec</span>
+        </div>
+    </div>
+</div>
+
+<div class="box">
+    <div class="box-header with-border">
+        <h4 class="box-title">Selecione a opção desejada</h4>
+        <ul class="menu-icon">
+            <li> <a href="/Candidato/Consulta">Listar Candidatos</a> </li>
+            <li> <a href="/Candidato/Cadastro">Adicionar Candidato</a> </li>
+        </ul>
+    </div>
+
+    @if (TempData["Sucesso"] != null)
+    {
+        <div class="box-body">
+            <h4><span class="label alert-success">@TempData["Sucesso"]</span></h4>
+        </div>
+    }
+    @if (TempData["Falha"] != null)
+    {
+        <div class="box-body">
+            <h4><span class="label alert-danger">@TempData["Falha"]</span></h4>
+        </div>
+    }
+
+    <div class="box-footer">
+
+    </div>
+</div>
+
+<script src="~/AdminLTE/plugins/slimscroll/js/jquery.slimscroll.js"></script>
+<script src="~/AdminLTE/plugins/bootstrap-wysihtml5/js/bootstrap3-wysihtml5.all.js"></script>
+<script src="~/AdminLTE/plugins/sparkline/js/jquery.sparkline.js"></script>
+<script src="~/AdminLTE/plugins/jvectormap/js/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="~/AdminLTE/plugins/jvectormap/js/jquery-jvectormap-world-mill-en.js"></script>
+<script src="~/AdminLTE/plugins/jvectormap/js/jquery-jvectormap-usa-en.js"></script>
+
+<script src="~/AdminLTE/plugins/daterangepicker/js/daterangepicker.js"></script>
+<script src="~/AdminLTE/plugins/daterangepicker/js/moment.js"></script>
+
+<script src="~/AdminLTE/plugins/knob/js/jquery.knob.js"></script>
+<script src="~/AdminLTE/plugins/raphael/js/raphael-min.js"></script>
+<script src="~/AdminLTE/plugins/morris/js/morris.js"></script>
+<script src="~/AdminLTE/plugins/datepicker/js/locales/bootstrap-datepicker.pt-BR.js"></script>
+<script src="~/Scripts/Home/DashboardV1.js"></script>

@@ -21,28 +21,23 @@ namespace Projeto.DAL.DataSource
 
         }
 
-        //sobrescrever o método OnModelCreating..
+        // Sobrescrever o método OnModelCreating..
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //definir para o EF cada classe de mapeamento..
             modelBuilder.Configurations.Add(new UsuarioMap());
             modelBuilder.Configurations.Add(new PerfilMap());
-            modelBuilder.Configurations.Add(new AprovacaoCurriculosMAP());
-            modelBuilder.Configurations.Add(new ProdutoMAP());
-            modelBuilder.Configurations.Add(new EmbalagemMAP());
-            modelBuilder.Configurations.Add(new ContatoMap());
-            modelBuilder.Configurations.Add(new EmpresaMap());
-            
+            modelBuilder.Configurations.Add(new CandidatoMap());
+            modelBuilder.Configurations.Add(new SituacaoMap());
+            modelBuilder.Configurations.Add(new CurriculoMap());
         }
 
-        //declarar um DbSet para cada entidade..
+        // Declarar um DbSet para cada entidade..
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Perfil> Perfil { get; set; }
-        public DbSet<AprovacaoCurriculos> AprovacaoPedidos { get; set; }
-        public DbSet<Produto> Produtos { get; set; }
-        public DbSet<Embalagem> Embalagem { get; set; }
-        public DbSet<Empresa> Empresa { get; set; }
-        public DbSet<Contato> Contato { get; set; }
-         
+        public DbSet<Candidato> Candidato { get; set; }
+        public DbSet<Curriculo> Curriculo { get; set; }
+        public DbSet<Situacao> Situacao { get; set; }
+
     }
 }

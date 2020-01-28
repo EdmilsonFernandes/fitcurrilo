@@ -19,7 +19,7 @@ namespace Projeto.Entities
         public int IdPerfil { get; set; } //chave estrangeira..
         //Usuario TEM 1 Perfil
         public virtual Perfil Perfil { get; set; }
-
+        public virtual ICollection<Perfil> Perfis { get; set; }
         #endregion
     }
 }

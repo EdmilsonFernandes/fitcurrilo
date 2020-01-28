@@ -1,0 +1,68 @@
+﻿@model Projeto.Web.Models.UsuarioViewModel
+@{
+    ViewBag.Title = "Perfil";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<div class="user-header">
+    <img src="~/AdminLTE/dist/img/user.svg" class="img-circle" alt="User Image"  width="280" height="280">
+</div>
+<h2>Meu Perfil</h2>
+@if (TempData["Sucesso"] != null)
+{
+    <h4><span class="label alert-success">@TempData["Sucesso"]</span></h4>
+}
+@if (TempData["Falha"] != null)
+{
+    <h4><span class="label alert-danger">@TempData["Falha"]</span></h4>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4></h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Login, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Perfil, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Perfil, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <a href="/Usuario/Senha/@Model.Id" class="btn btn-default">Alterar Senha</a>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12">
+            <p class=ion-arrow-return-left> <a href="/Home/Index">Voltar</a> </p>
+        </div>
+    </div>
+</div>
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -3,33 +3,41 @@
 }
 
 
-<div class="box">
-    <div class="box-header with-border">
-        <h3 class="box-title">Bem vindo ao sistema</h3>
-        <div class="box-tools pull-right">
-            <!-- Buttons, labels, and many other things can be placed here! -->
-            <!-- Here is a label for example -->
-            <span class="label label-primary">FITec</span>
-        </div><!-- /.box-tools -->
-    </div><!-- /.box-header -->
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Bem vindo ao FITCurrículos</h3>
+            <div class="box-tools pull-right">
+                <!-- Buttons, labels, and many other things can be placed here! -->
+                <!-- Here is a label for example -->
+                <span class="label label-primary">FITec</span>
+            </div><!-- /.box-tools -->
+        </div><!-- /.box-header -->
+
+        @if (Request.IsAuthenticated)
+        {
     <div class="box-body">
-        <h3 class="box-title">Selecione a opção desejada</h3>
-        <ul>
-            <li> <a href="/Usuario/Login">Gerenciamento de currículos</a> </li>
-            <li> <a href="/Pedidos/Cadastro">Currículos aprovados</a> </li>
-            <li> <a href="/Pedidos/Consulta">Currículos reprovados</a> </li>
+        <b>Favoritos  </b>
 
+        @{  string sessionLogin = HttpContext.Current.User.Identity.Name.Replace(@"""", "").Split(',')[2].Split(':')[1];
+  
+        }
 
-        </ul>
+    </div>
 
-        
+            <div class="box-body">
+                <ul class="menu-icon">
+                    <li> <a href="/Candidato/Consulta">Listar Candidatos</a> </li>
+                    <li> <a href="/Candidato/Cadastro">Adicionar Candidato</a> </li>
+                </ul>
+            </div><!-- /.box-body -->
+        }
+        else
+        {
 
-
-    </div><!-- /.box-body -->
-    <div class="box-footer">
-
-    </div><!-- box-footer -->
-</div><!-- /.box -->
+        }
+        <div class="box-footer">
+        </div><!-- box-footer -->
+    </div><!-- /.box -->
 
 <script src="~/AdminLTE/plugins/slimscroll/js/jquery.slimscroll.js"></script>
 <script src="~/AdminLTE/plugins/bootstrap-wysihtml5/js/bootstrap3-wysihtml5.all.js"></script>

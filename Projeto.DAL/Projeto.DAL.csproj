@@ -38,10 +38,31 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,21 +72,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataSource\Conexao.cs" />
-    <Compile Include="Mappings\ContatoMap.cs" />
-    <Compile Include="Mappings\EmpresaMap.cs" />
+    <Compile Include="Mappings\CurriculoMap.cs" />
+    <Compile Include="Mappings\SituacaoMap.cs" />
+    <Compile Include="Mappings\CandidatoMap.cs" />
     <Compile Include="Mappings\PerfilMap.cs" />
-    <Compile Include="Mappings\EmbalagemMAP.cs" />
-    <Compile Include="Mappings\ProdutoMAP.cs" />
-    <Compile Include="Mappings\AprovacaoPedidosMAP.cs" />
     <Compile Include="Mappings\UsuarioMap.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Persistence\ContatoDal.cs" />
-    <Compile Include="Persistence\EmpresaDal.cs" />
+    <Compile Include="Persistence\CurriculoDal.cs" />
+    <Compile Include="Persistence\CandidatoDal.cs" />
+    <Compile Include="Persistence\SituacaoDal.cs" />
     <Compile Include="Persistence\GenericDal.cs" />
     <Compile Include="Persistence\PerfilDal.cs" />
-    <Compile Include="Persistence\EmbalagemDal.cs" />
-    <Compile Include="Persistence\ProdutoDal.cs" />
-    <Compile Include="Persistence\AprovacaoPedidosDal.cs" />
     <Compile Include="Persistence\UsuarioDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

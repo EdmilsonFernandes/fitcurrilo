@@ -212,6 +212,12 @@ a:focus {
   background: rgba(255, 255, 255, 0.2);
   border-color: transparent;
 }
+
+.disabled {
+    background-color: lightgray;
+    border-color: transparent;
+}
+
 .main-header #navbar-search-input.form-control:focus,
 .main-header #navbar-search-input.form-control:active {
   border-color: rgba(0, 0, 0, 0.1);
@@ -1848,6 +1854,8 @@ a:focus {
   font-size: 12px;
 }
 /* Widget: TODO LIST */
+
+
 .todo-list {
   margin: 0;
   padding: 0;
@@ -2620,7 +2628,7 @@ a:focus {
   border-bottom-width: 0;
 }
 /*
- * Component: Table
+ * Component: TableTable
  * ----------------
  */
 .table > thead > tr > th,
@@ -2635,7 +2643,8 @@ a:focus {
   border-bottom: 2px solid #f4f4f4;
 }
 .table tr td .progress {
-  margin-top: 5px;
+    margin-top: 5px;
+
 }
 .table-bordered {
   border: 1px solid #f4f4f4;
@@ -4903,4 +4912,19 @@ table.text-center th {
   .table-responsive > .table tr td {
     white-space: normal !important;
   }
+
+    .iframe-container {
+        position: relative;
+        overflow: hidden;
+        padding-top: 56.25%;
+    }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
 }

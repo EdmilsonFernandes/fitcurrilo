@@ -5,8 +5,6 @@
     ViewBag.SubTitle = "Sistema";
     Layout = "~/Views/Shared/LayoutLogin.cshtml";
 }
-
-
 <script src="~/Scripts/Examples/Login-menu.js"></script>
 <script src="~/AdminLTE/plugins/icheck/js/icheck.js"></script>
 
@@ -14,13 +12,13 @@
 {
     <div class="login-box">
         <div class="login-logo">
-            <a href="@Url.Action("Home", "Index")">Seja <b>Bem Vindo ao FitCurriculo!</b></a>
+            <a href="@Url.Action("Home", "Index")">Seja <b>Bem Vindo ao FitCurriculos!</b></a>
         </div>
         <div class="login-box-body">
             <p class="login-box-msg">Acessar o sistema</p>
             <form href="#" method="post">
                 <div class="form-group has-feedback">
-                    @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control", @placeholder ="Login" } })
+                    @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control", @placeholder = "Login" } })
                     @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
@@ -32,13 +30,28 @@
                 <div class="row">
                     <div class="col-xs-8 col-lg-offset-2">
                         <button type="submit" class="btn btn-primary btn-block btn-flat">Acessar o Sistema</button>
-                    </div> 
+                    </div>
                 </div>
             </form>
+            <div>
+                @if (TempData["Sucesso"] != null)
+                {
+                    <div class="box-body">
+                        <center>
+                            <h4><span class="label alert-success">@TempData["Sucesso"]</span></h4>
+                        </center>
+                    </div>
+                }
+                @if (TempData["Falha"] != null)
+                {
+                    <div class="box-body">
+                        <center>
+                            <h4><span class="label alert-danger">@TempData["Falha"]</span></h4>
+                        </center>
+                    </div>
+                }
+            </div>
         </div>
     </div>
-    <br />
-    <div>
-        @ViewBag.Mensagem
-    </div>
+
 }

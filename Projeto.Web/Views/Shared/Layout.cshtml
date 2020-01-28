@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>WebApplication</title>
+    <title>FITCurriculos</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <link href="~/AdminLTE/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" />
@@ -26,15 +26,15 @@
     <div class="wrapper">
         <header class="main-header">
             <a href="@Url.Action("Index", "Home")" class="logo">
-                <span class="logo-mini"><b>W</b>eb</span>
-                <span class="logo-lg"><b>Fitec </b>FitCurriculo</span>
+                <span class="logo-mini"><b>F</b>C</span>
+                <span class="logo-lg"><b>FIT</b>Currículos</span>
             </a>
             <nav class="navbar navbar-static-top" role="navigation">
                 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
 
-
+                <!--Menu usuário canto superior direito-->
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <li class="dropdown user user-menu">
@@ -65,35 +65,34 @@
                                         </div>
                                     </li>
                                     <li class="user-footer">
-                                        @using (Html.BeginForm("LogOff", "Usuario", FormMethod.Post, new { id = "Logout", @class = "" }))
+                                        @using (Html.BeginForm("Deslogar", "Usuario", FormMethod.Post, new { id = "Logout", @class = "" }))
                                         {
                                             @Html.AntiForgeryToken()
                                             <div class="pull-left">
-                                                @Html.ActionLink("Profile", "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "btn btn-default btn-flat", title = "Manage" })
+                                                @Html.ActionLink("Meu Perfil", "Perfil", "Usuario", new { id = auth.IdUsuario },   htmlAttributes: new { @class = "btn btn-default btn-flat", title = "Meu Perfil" })
                                             </div>
                                             <div class="pull-right">
-                                                @Html.ActionLink("Logout", "Logout", "Usuario", routeValues: null, htmlAttributes: new { @class = "btn btn-default btn-flat", title = "Logout" })
+                                                @Html.ActionLink("Deslogar", "Logout", "Usuario", routeValues: null, htmlAttributes: new { @class = "btn btn-default btn-flat", title = "Logout" })
                                             </div>
 
                                         }
                                     </li>
-
-                                    }
                                 </ul>
                             }
                             else
                             {
                                 <ul class="nav navbar-nav">
-                                    <li>@Html.ActionLink("Cadastrar", "Cadastro", "Usuario", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                                    <li>@Html.ActionLink("Log in", "Login", "Usuario", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+
+                                    <!-- <li>@Html.ActionLink("Cadastrar", "Cadastro", "Usuario", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>-->
+                                    <li>@Html.ActionLink("Logar", "Login", "Usuario", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
                                 </ul>
                             }
                         </li>
-
-
-                        <li>
-                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                        </li>
+                        <!--
+                            <li>
+                                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                            </li
+                         -->
                     </ul>
                 </div>
             </nav>
@@ -122,31 +121,56 @@
                 </div>
             
                 <ul class="sidebar-menu">
-                    <li class="header">Menu Principal</li>
-                   
-                   
-                    <li id="left-sidebar-menu-forms" class="treeview">
-                        <a href="#">
-                            <i class="fa fa-edit"></i> <span>FitCurriculos</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li id="left-sidebar-menu-forms-general"><a href="@Url.Action("General", "Forms")"><i class="fa fa-circle-o"></i> Gerenciamento de currículos</a></li>
-                            <li id="left-sidebar-menu-forms-advanced"><a href="@Url.Action("Advanced", "Forms")"><i class="fa fa-circle-o"></i> Currículos aprovados</a></li>
-                            <li id="left-sidebar-menu-forms-editors"><a href="@Url.Action("Editors", "Forms")"><i class="fa fa-circle-o"></i>Currículos reprovados</a></li>
-                        </ul>
-                    </li>
-                
-               
+
+
+                    @if (Request.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin"))
+                        {
+                            <li class="header">Menu Administrador</li>
+
+                            <li id="left-sidebar-menu-forms">
+                                <a href="#">
+                                    <i class="fa fa-user"></i> <span>Usuário</span>
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="left-sidebar-menu-forms-advanced"><a href="@Url.Action("Consulta", "Usuario")"><i class="fa fa-list"></i> Listar Usuários</a></li>
+                                    <li id="left-sidebar-menu-forms-general"><a href="@Url.Action("Cadastro", "Usuario")"> <i class="fa fa-user-plus"></i> Adicionar Usuário</a></li>
+                                </ul>
+                            </li>
+
+                            <li id="left-sidebar-menu-forms">
+                                <a href="#">
+                                    <i class="fa fa-table"></i> <span>Tabelas do Sistema</span>
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="left-sidebar-menu-forms-advanced"><a href="@Url.Action("Consulta", "Situacao")"><i class="fa fa-circle-o"></i> Situações</a></li>
+                                </ul>
+                            </li>
+                        }
+
+                        <li class="header">Menu Principal</li>
+
+                        <li id="left-sidebar-menu-forms" class="treeview">
+                            <a href="#">
+                                <i class="fa fa-user"></i> <span>Candidato</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="left-sidebar-menu-forms-advanced"><a href="@Url.Action("Consulta", "Candidato")"><i class="fa fa-list"></i> Listar Candidatos</a></li>
+                                <li id="left-sidebar-menu-forms-general"><a href="@Url.Action("Cadastro", "Candidato")"><i class="fa fa-user-plus"></i> Adicionar Candidato </a></li>
+                            </ul>
+                        </li>
+                    }
                     <li id="left-sidebar-menu-documentation">
-                        <a href="@Url.Action("Index", "Documentation")">
+                        <a href="@Url.Action("Sobre", "Home")">
                             <i class="fa fa-book"></i>
                             <span>Sobre o FITCurriculos</span>
                         </a>
                     </li>
-                  
                 </ul>
-
             </section>
         </aside>
 
@@ -155,18 +179,11 @@
                 @RenderBody()
             </section>
         </div>
-        <footer class="main-footer navbar-fixed-bottom">
-            <div class="pull-right hidden-xs">
-                <b>Versão</b> 1.0
-            </div>
-            <strong>Desenvolvido por Daniel Costa.</strong>  &copy; 2019
-        </footer>
         <aside class="control-sidebar control-sidebar-dark">
             <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
                 <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
                 <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
             </ul>
-            
         </aside>
     </div>
     <script src="~/AdminLTE/plugins/jquery/js/jQuery-2.1.4.min.js"></script>

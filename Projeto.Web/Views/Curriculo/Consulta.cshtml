@@ -1,0 +1,40 @@
+﻿@model List<Projeto.Web.Models.CurriculoViewModel>
+@{
+    ViewBag.Title = "Consulta";
+    Layout = "~/Views/Shared/LayoutLogin.cshtml";
+}
+<div id="myDoc" class="box">
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data de Cadastro</th>
+                <th>Tamanho</th>
+                <th>Cadastrado Por</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Nome</td>
+                    <td>@item.DataCadastro</td>
+                    <td>@item.Tamanho</td>
+                    <td>@item.CadastradoPor</td>
+                    <td>
+                        <p> <a href="/Curriculo/Visualizar/@item.Id" target="_blank">Visualizar</a> </p>
+                    </td>
+                    <td>
+                        <p> <a href="/Curriculo/Excluir/@item.Id" target="_parent">Excluir</a> </p>
+                    </td>
+                </tr>
+            }
+    </table>
+</div>
+<script type="text/javascript">
+      window.onload = function(){
+         parent.document.getElementById("iframe1").height = document.getElementById("myDoc").scrollHeight + 35;
+     }
+</script>

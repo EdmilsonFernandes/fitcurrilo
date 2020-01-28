@@ -1,0 +1,84 @@
+﻿@model List<Projeto.Web.Models.UsuarioViewModel>
+@{
+    ViewBag.Title = "Consulta";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Lista de Usuários Cadastrados no Sistema</h3>
+                </div>
+                @if (TempData["Sucesso"] != null)
+                {
+                    <div class="box-body">
+                        <h4><span class="label alert-success">@TempData["Sucesso"]</span></h4>
+                    </div>
+                }
+                @if (TempData["Falha"] != null)
+                {
+                    <div class="box-body">
+                        <h4><span class="label alert-danger">@TempData["Falha"]</span></h4>
+                    </div>
+                }
+            </div>
+            <div class="box">
+                <div class="box-header">
+                    <div class="form-group">
+
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.Label("Filtro por Nome", htmlAttributes: new { @class = "control-label col-md-1" })
+                        <div class="col-md-3">
+                            <p>
+                                @Html.TextBox("buscaNome", null, new { @class = "form-control" })
+                            </p>
+                            <p>
+                                <input name="submit" type="submit" value="Filtrar" class="btn btn-default" id="submit" />
+                                <input name="submit" type="submit" value="Limpar" class="btn btn-default" id="submit" />
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="box-header">
+                    <div class="col-md2">
+                        <p>Usuários Encontrados: @Model.Count </p>
+                        <p class=ion-arrow-return-left> <a href="/Home/Index">Voltar</a> </p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <table class="table table-bordered table-striped" >
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Login</th>
+                            <th>Perfil</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Nome</td>
+                                <td>@item.Login</td>
+                                <td>@item.Perfil</td>
+                                <td>
+                                    @Html.ActionLink("Excluir", "Excluir", new { id = item.Id })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
+

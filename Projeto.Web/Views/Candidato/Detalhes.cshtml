@@ -1,0 +1,128 @@
+﻿@model Projeto.Web.Models.CandidatoViewModel
+@{
+    ViewBag.Title = "Detalhes do Candidato";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+@if (TempData["Sucesso"] != null)
+{
+    <h4><span class="label alert-success">@TempData["Sucesso"]</span></h4>
+}
+@if (TempData["Falha"] != null)
+{
+    <h4><span class="label alert-danger">@TempData["Falha"]</span></h4>
+}
+
+@using (Html.BeginForm("Detalhes", "Candidato", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4></h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GrauInstrucao, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GrauInstrucao, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.GrauInstrucao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QtdeCertificados, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QtdeCertificados, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.QtdeCertificados, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Situacao, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => Model.Situacao, Model.Situacoes, new { @class = "form-control", @disabled = "disabled" })
+                @Html.ValidationMessageFor(model => model.Situacao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Observacao, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Observacao, new { @class = "form-control", @disabled = "disabled" })
+                @Html.ValidationMessageFor(model => model.Observacao, "", new { htmlAttributes = new { @class = "text-danger" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CadastradoPor, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CadastradoPor, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DataCadastro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DataCadastro, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AtualizadoPor, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AtualizadoPor, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DataAtualizacao, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DataAtualizacao, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="/Candidato/Editar/@Model.Id" class="btn btn-default">Editar</a>
+                <a href="/Candidato/Excluir/@Model.Id" class="btn btn-default">Excluir</a>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <a href="/Candidato/AddCurriculo/@Model.Id" class="btn btn-default">Adicionar Currículo</a>
+            </div>
+
+
+            <div class="col-md-12">
+                <h3>Currículos</h3>
+            </div>
+            <div class="col-md-12">
+                <iframe id="iframe1"
+                        width="100%"
+                        height=""
+                        frameborder="0"
+                        scrolling="no"
+                        src='/Curriculo/Consulta/@Model.Id'>
+                </iframe>
+            </div>
+            <div class="col-md-12">
+                <p class=ion-arrow-return-left> <a href="/Candidato/Consulta">Voltar</a> </p>
+            </div>
+        </div>
+    </div>
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

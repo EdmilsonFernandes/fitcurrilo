@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,13 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AprovacaoCurriculos.cs" />
-    <Compile Include="Contato.cs" />
-    <Compile Include="Embalagem.cs" />
-    <Compile Include="Empresa.cs" />
-    <Compile Include="Estoque.cs" />
+    <Compile Include="Curriculo.cs" />
+    <Compile Include="Situacao.cs" />
+    <Compile Include="Candidato.cs" />
     <Compile Include="Perfil.cs" />
-    <Compile Include="Produto.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

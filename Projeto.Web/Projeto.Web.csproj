@@ -56,6 +56,12 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -894,6 +900,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -910,9 +918,13 @@
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Views\Admin\Consulta.cshtml" />
-    <Content Include="Views\Pedidos\Cadastro.cshtml" />
-    <Content Include="Views\Pedidos\Consulta.cshtml" />
     <Content Include="AdminLTE\bootstrap\css\bootstrap.css.map" />
     <Content Include="AdminLTE\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="AdminLTE\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
@@ -1007,23 +1019,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\EmpresaController.cs" />
-    <Compile Include="Controllers\PedidosController.cs" />
-    <Compile Include="Models\AprovacaoPedidosViewModelCadastro.cs" />
-    <Compile Include="Models\AprovacaoCurriculosViewModelConsulta.cs" />
+    <Compile Include="Controllers\SituacaoController.cs" />
+    <Compile Include="Controllers\CurriculoController.cs" />
+    <Compile Include="Controllers\CandidatoController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\EmbalagemController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProdutoViewModelCadastro.cs" />
-    <Compile Include="Models\ProdutoViewModelConsulta.cs" />
-    <Compile Include="Models\ProdutoViewModelEdicao.cs" />
+    <Compile Include="Models\CurriculoViewModel.cs" />
+    <Compile Include="Models\CandidatoViewModel.cs" />
     <Compile Include="Models\UsuarioAutenticado.cs" />
-    <Compile Include="Models\UsuarioViewModelCadastro.cs" />
+    <Compile Include="Models\UsuarioAlterarSenha.cs" />
+    <Compile Include="Models\UsuarioViewModel.cs" />
     <Compile Include="Models\UsuarioViewModelLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1031,14 +1040,28 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Produto\Index.cshtml" />
-    <Content Include="Views\Produto\Cadastro.cshtml" />
-    <Content Include="Views\Produto\Editar.cshtml" />
-    <Content Include="Views\Produto\Detalhes.cshtml" />
     <Content Include="Views\Shared\Layout2.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Shared\LayoutLogin.cshtml" />
+    <Content Include="Views\Candidato\Gerenciamento.cshtml" />
+    <Content Include="Views\Candidato\Cadastro.cshtml" />
+    <Content Include="Views\Candidato\Editar.cshtml" />
+    <Content Include="Views\Candidato\Consulta.cshtml" />
+    <Content Include="Views\Candidato\Detalhes.cshtml" />
+    <Content Include="Views\Curriculo\Consulta.cshtml" />
+    <Content Include="Views\Candidato\AddCurriculo.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Curriculo\Excluir.cshtml" />
+    <Content Include="Views\Candidato\Excluir.cshtml" />
+    <Content Include="Views\Home\Sobre.cshtml" />
+    <Content Include="Views\Usuario\Consulta.cshtml" />
+    <Content Include="Views\Usuario\Excluir.cshtml" />
+    <Content Include="Views\Situacao\Consulta.cshtml" />
+    <Content Include="Views\Situacao\Excluir.cshtml" />
+    <Content Include="Views\Usuario\Perfil.cshtml" />
+    <Content Include="Views\Usuario\Senha.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1048,8 +1071,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Embalagem\" />
-    <Folder Include="Views\Empresa\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Projeto.DAL\Projeto.DAL.csproj">

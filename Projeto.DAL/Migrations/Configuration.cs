@@ -18,8 +18,8 @@ namespace Projeto.DAL.Migrations
         protected override void Seed(Projeto.DAL.DataSource.Conexao context)
         {            
                 context.Perfil.AddOrUpdate(                  
-                  new Perfil { IdPerfil = 1, Nome = "DEFAULT" },
-                  new Perfil { IdPerfil = 2, Nome = "ADMIN" }
+                  new Perfil { IdPerfil = 2, Nome = "DEFAULT" },
+                  new Perfil { IdPerfil = 1, Nome = "ADMIN" }
                 );            
         }
     }

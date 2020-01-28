@@ -1,4 +1,4 @@
-﻿@model Projeto.Web.Models.UsuarioViewModelCadastro
+﻿@model Projeto.Web.Models.UsuarioViewModel
 
 @{
     Layout = "~/Views/Shared/Layout.cshtml";
@@ -10,9 +10,21 @@
     
     <div class="form-horizontal">
 
-        <h4>Cadastrar Curriculo</h4>
-        <a href="/Home/Index">Voltar</a> para a página incial.
-        <hr />
+        <h2>Novo Usuário</h2>
+
+        @if (TempData["Sucesso"] != null)
+        {
+            <div class="box-body">
+                <h4><span class="label alert-success">@TempData["Sucesso"]</span></h4>
+            </div>
+        }
+        @if (TempData["Falha"] != null)
+        {
+            <div class="box-body">
+                <h4><span class="label alert-danger">@TempData["Falha"]</span></h4>
+            </div>
+        }
+
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -32,6 +44,14 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.Perfil, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => Model.Perfil, Model.Perfis, new { @class = "form-control", @enabled = "false" })
+                @Html.ValidationMessageFor(model => model.Perfil, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Senha, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-4">
                 @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
@@ -40,22 +60,22 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SenhaConfirm, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ConfirmaSenha, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-4">
-                @Html.EditorFor(model => model.SenhaConfirm, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SenhaConfirm, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.ConfirmaSenha, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ConfirmaSenha, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Cadastrar Usuario" 
+                <input type="submit" value="Cadastrar Usuario"
                        class="btn btn-default" />
             </div>
         </div>
+
+        <div class="col-md-12">
+            <p class=ion-arrow-return-left> <a href="/Home/Index">Voltar</a> </p>
+        </div>
     </div>
 }
-
-<div>
-    @ViewBag.Mensagem
-</div>
