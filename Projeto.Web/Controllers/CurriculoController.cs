@@ -1,17 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Projeto.DAL.DataSource;
+using Projeto.DAL.Persistence;
+using Projeto.Entities;
+using Projeto.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Projeto.Web.Models;
-using Projeto.Entities;
-using Newtonsoft.Json;
-using Projeto.DAL.Persistence;
-using Projeto.DAL.DataSource;
-using PagedList;
-using System.IO;
-using System.Net;
-using System.Security.Principal;
 
 namespace Projeto.Web.Controllers
 {
@@ -122,7 +118,7 @@ namespace Projeto.Web.Controllers
             {
                 return RedirectToAction("Login", "Usuario");
             }
-    
+
         }
 
         // GET: /Movies/Delete/5
@@ -159,7 +155,7 @@ namespace Projeto.Web.Controllers
                 UsuarioDal uDal = new UsuarioDal();
                 CurriculoDal cuDal = new CurriculoDal();
                 Curriculo curriculo = cuDal.FindById(id);
-                
+
                 if (curriculo == null)
                 {
                     return HttpNotFound();
@@ -167,7 +163,7 @@ namespace Projeto.Web.Controllers
                 else
                 {
                     int idCandidato = curriculo.IdCandidato;
-                    
+
                     // Usuário é Admin
                     if (HttpContext.User.IsInRole("Admin"))
                     {

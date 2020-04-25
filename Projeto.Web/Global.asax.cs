@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Projeto.Web.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
@@ -27,7 +25,7 @@ namespace Projeto.Web
                 {
                     if (HttpContext.Current.User.Identity is FormsIdentity)
                     {
-                        FormsIdentity id = (FormsIdentity) HttpContext.Current.User.Identity;
+                        FormsIdentity id = (FormsIdentity)HttpContext.Current.User.Identity;
 
                         FormsAuthenticationTicket ticket = id.Ticket;
 

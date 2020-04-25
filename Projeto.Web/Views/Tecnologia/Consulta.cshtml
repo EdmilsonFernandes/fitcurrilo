@@ -1,0 +1,64 @@
+﻿@model List<Projeto.Entities.Tecnologia>
+    @{
+        ViewBag.Title = "Consulta";
+        Layout = "~/Views/Shared/Layout.cshtml";
+    }
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Tabela Tecnologia</h3>
+                </div>
+                @if (TempData["Sucesso"] != null)
+                {
+                    <div class="box-body">
+                        <h4><span class="label alert-success">@TempData["Sucesso"]</span></h4>
+                    </div>
+                }
+                @if (TempData["Falha"] != null)
+                {
+                    <div class="box-body">
+                        <h4><span class="label alert-danger">@TempData["Falha"]</span></h4>
+                    </div>
+                }
+            </div>
+
+            <div class="box">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th width="250">Tecnologia</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Nome</td>
+                                <td>
+                                    <p> <a href="/Tecnologia/Excluir/@item.Id" target="_parent">Excluir</a> </p>
+                                </td>
+                            </tr>
+                        }
+                </table>
+
+                <div class="box-body">
+                    @Html.Label("Nova Tecnologia", htmlAttributes: new { @class = "control-label col-md-1" })
+                    <div class="col-md-3">
+                        <p>
+                            @Html.TextBox("txtTecnologia", null, new { @class = "form-control" })
+                        </p>
+                        <p>
+                            <input name="submit" type="submit" value="Adicionar" class="btn btn-default" id="submit" />
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}

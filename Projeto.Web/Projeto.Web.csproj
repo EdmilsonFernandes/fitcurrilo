@@ -24,6 +24,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <Use64BitIISExpress />
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -71,6 +75,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -78,6 +85,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -913,7 +923,12 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\fitcurriculos - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ProjetoWeb20200128023544 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ProjetoWebFitCurriculo - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ProjetoWebFitCurriculo - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-3.1.1-vsdoc.js" />
+    <Content Include="Scripts\jqueryFitCurriculos.js" />
+    <Content Include="Scripts\methods_pt.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -1019,6 +1034,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\RecrutadorController.cs" />
+    <Compile Include="Controllers\VagaController.cs" />
+    <Compile Include="Controllers\TecnologiaController.cs" />
     <Compile Include="Controllers\SituacaoController.cs" />
     <Compile Include="Controllers\CurriculoController.cs" />
     <Compile Include="Controllers\CandidatoController.cs" />
@@ -1028,6 +1046,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\RecrutadorViewModel.cs" />
+    <Compile Include="Models\VagaModel.cs" />
     <Compile Include="Models\CurriculoViewModel.cs" />
     <Compile Include="Models\CandidatoViewModel.cs" />
     <Compile Include="Models\UsuarioAutenticado.cs" />
@@ -1062,6 +1082,13 @@
     <Content Include="Views\Situacao\Excluir.cshtml" />
     <Content Include="Views\Usuario\Perfil.cshtml" />
     <Content Include="Views\Usuario\Senha.cshtml" />
+    <Content Include="Views\Tecnologia\Consulta.cshtml" />
+    <Content Include="Views\Tecnologia\Excluir.cshtml" />
+    <Content Include="Views\Vaga\Cadastro.cshtml" />
+    <Content Include="Views\Vaga\Consulta.cshtml" />
+    <Content Include="Views\Recrutador\Consulta.cshtml" />
+    <Content Include="Views\Recrutador\Excluir.cshtml" />
+    <Content Include="Views\Recrutador\Cadastro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

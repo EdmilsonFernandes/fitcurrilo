@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
@@ -12,13 +9,13 @@ namespace Projeto.Web.Models
         [Display(Name = "Id:")] //label
         public int Id { get; set; }
 
-        [RegularExpression("^[A-Za-zÀ-Üà-ü\\s]{6,50}$", 
+        [RegularExpression("^[A-Za-zÀ-Üà-ü\\s]{6,50}$",
             ErrorMessage = "Por favor, informe um nome de usuario válido")]
         [Required(ErrorMessage = "Por favor, informe o nome do usuário")]
         [Display(Name = "Nome do Usuário:")] //label..
         public string Nome { get; set; } //campo
 
-        [RegularExpression("^[a-z0-9]{6,20}$", 
+        [RegularExpression("^[a-z0-9]{6,20}$",
             ErrorMessage = "Por favor, informe um login de usuario válido")]
         [Required(ErrorMessage = "Por favor, informe o login do usuário")]
         [Display(Name = "Login de Acesso:")] //label..

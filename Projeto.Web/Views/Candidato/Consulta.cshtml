@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -11,8 +12,13 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Lista de Candidatos Cadastrados no Sistema</h3>
+                    <h3 class="box-title">Lista de Candidatos cadastrados no sistema</h3>
                 </div>
+                <div class="box-body">
+                    <a href="/Candidato/Cadastro" class="btn btn-default">Adicionar Candidato</a>
+                    <button type="button" class="btn btn-default btn-toggle" data-element="#divFiltros">Filtrar Candidato</button>
+                </div>
+                               
                 @if (TempData["Sucesso"] != null)
                 {
                     <div class="box-body">
@@ -25,23 +31,48 @@
                         <h4><span class="label alert-danger">@TempData["Falha"]</span></h4>
                     </div>
                 }
-            </div>
+                @if (TempData["Aviso"] != null)
+                {
+                    <div class="box-body">
+                        <h4><span class="label alert-info">@TempData["Aviso"]</span></h4>
+                    </div>
+                }
 
-            <div class="box">
+            </div>
+            <div id="divFiltros" style="display:none" class="box">
                 <div class="box-header">
                     <div class="form-group">
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        @Html.Label("Filtro por Nome", htmlAttributes: new { @class = "control-label col-md-1" })
+
+                        @Html.Label("Nome", htmlAttributes: new { @class = "control-label col-md-1" })
                         <div class="col-md-3">
                             <p>
                                 @Html.TextBox("buscaNome", null, new { @class = "form-control" })
                             </p>
+                        </div>
+                        @Html.Label("Situação", htmlAttributes: new { @class = "control-label col-md-1" })
+                        <div class="col-md-3">
                             <p>
-                                <input name="submit" type="submit" value="Filtrar" class="btn btn-default" id="submit" />
-                                <input name="submit" type="submit" value="Limpar" class="btn btn-default" id="submit" />
+                                @Html.DropDownList("buscaSituacao", ViewBag.Situacoes as IEnumerable<SelectListItem>, "", new { @class = "form-control", @enabled = "false" })
                             </p>
                         </div>
+                        @Html.Label("Recrutador", htmlAttributes: new { @class = "control-label col-md-1" })
+                        <div class="col-md-3">
+                            <p>
+                                @Html.DropDownList("buscaRecrutador", ViewBag.Recrutadores as IEnumerable<SelectListItem>, "", new { @class = "form-control", @enabled = "false" })
+                            </p>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="box-header">
+                    <div class="col-md2">
+                        <p>
+                            <input name="submit" type="submit" value="Filtrar" class="btn btn-default" id="submit" />
+                            <input name="submit" type="submit" value="Limpar" class="btn btn-default" id="submit" />
+                        </p>
                     </div>
                 </div>
                 <div class="box-header">
@@ -52,12 +83,13 @@
                 </div>
             </div>
             <div class="box">
-                <table class="table table-bordered table-striped" >
+                <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>Nome</th>
                             <th>Grau de Instrução</th>
                             <th>Situação</th>
+                            <th>Recrutador</th>
                             <th>Quantidade de Certificados</th>
                             <th>Observações</th>
                             <th>Data de Cadastro</th>
@@ -71,9 +103,10 @@
                                 <td>@item.Nome</td>
                                 <td>@item.GrauInstrucao</td>
                                 <td>@item.Situacao</td>
+                                <td>@item.Recrutador</td>
                                 <td>@item.QtdeCertificados</td>
                                 <td>@item.Observacao</td>
-                                <td>@item.DataCadastro</td>
+                                <td>@item.DataCadastro.ToString("dd/MM/yyyy")</td>
                                 <td>
                                     @Html.ActionLink("Detalhes", "Detalhes", new { id = item.Id })
                                 </td>
@@ -85,5 +118,5 @@
         </div>
     </div>
 }
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="~/Scripts/jqueryFitCurriculos.js"></script>

@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Projeto.Web.Models
 {
     public class UsuarioAlterarSenha
     {
-      [Display(Name = "Id:")] //label
-      public int Id { get; set; }
+        [Display(Name = "Id:")] //label
+        public int Id { get; set; }
 
-     public string Login { get; set; } //campo
+        public string Login { get; set; } //campo
                                           //
                                           //[RegularExpression("^[A-Za-zÀ-Üà-ü\\s]{6,50}$", 
                                           //    ErrorMessage = "Por favor, informe um nome de usuario válido")]

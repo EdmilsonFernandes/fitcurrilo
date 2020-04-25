@@ -17,6 +17,12 @@
         <h4><span class="label alert-danger">@TempData["Falha"]</span></h4>
     </div>
 }
+@if (TempData["Aviso"] != null)
+{
+    <div class="box-body">
+        <h4><span class="label alert-warning">@TempData["Aviso"]</span></h4>
+    </div>
+}
 
 @using (Html.BeginForm("Cadastro", "Candidato", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -57,6 +63,14 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.Recrutador, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => Model.Recrutador, Model.Recrutadores, new { @class = "form-control", @enabled = "false" })
+                @Html.ValidationMessageFor(model => model.Recrutador, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Observacao, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextAreaFor(model => model.Observacao, new { @class = "form-control" })
@@ -77,7 +91,7 @@
             <br><br>
         </div>
         <div class="col-md-12">
-            <p class=ion-arrow-return-left> <a href="/Home/Index">Voltar</a> </p>
+            <p class=ion-arrow-return-left> <a href="/Candidato/Consulta">Voltar</a> </p>
         </div>
     </div>
 }

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Projeto.Web.Models;
+﻿using Projeto.DAL.Persistence;
 using Projeto.Entities;
-using Newtonsoft.Json;
-using Projeto.DAL.Persistence;
-using Projeto.DAL.DataSource;
+using System;
+using System.Web.Mvc;
 
 namespace Projeto.Web.Controllers
 {
@@ -65,7 +59,7 @@ namespace Projeto.Web.Controllers
             {
                 return HttpNotFound();
             }
-            
+
             // Situações com o valor "Novo Candidato" e "Currículo Visualizado" não podem ser excluídas
             if (situacao.Descricao.Equals("Novo Candidato") || situacao.Descricao.Equals("Currículo Visualizado"))
             {
@@ -116,7 +110,8 @@ namespace Projeto.Web.Controllers
                 if (sDal.SituacaoExiste(txtSituacao))
                 {
                     TempData["Falha"] = "Já existe uma situação cadastrada no sistema com o nome: " + txtSituacao;
-                } else
+                }
+                else
                 {
                     novaSituacao.Descricao = txtSituacao;
                     sDal.Insert(novaSituacao);

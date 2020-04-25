@@ -1,10 +1,8 @@
-﻿using System;
+﻿using Projeto.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Projeto.Entities;
 
 namespace Projeto.Web.Models
 {
@@ -29,9 +27,14 @@ namespace Projeto.Web.Models
         [Display(Name = "Situação:")] //label
         public string Situacao { get; set; } //campo
 
+        [Display(Name = "Recrutador:")] //label
+        public string Recrutador { get; set; } //campo
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Data Cadastro:")] //label
         public DateTime DataCadastro { get; set; }//campo
 
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Data Atualizacao:")] //label
         public DateTime DataAtualizacao { get; set; }//campo
 
@@ -45,8 +48,10 @@ namespace Projeto.Web.Models
         public string Observacao { get; set; } //campo
 
         [Display(Name = "Currículo:")] //label
-     
+
         public IEnumerable<SelectListItem> Situacoes { get; set; }
+
+        public IEnumerable<SelectListItem> Recrutadores { get; set; }
 
         public List<Curriculo> Curriculos { get; set; }
     }

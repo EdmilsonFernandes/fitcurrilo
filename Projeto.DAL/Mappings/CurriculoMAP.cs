@@ -1,5 +1,5 @@
-﻿using System.Data.Entity.ModelConfiguration;
-using Projeto.Entities;
+﻿using Projeto.Entities;
+using System.Data.Entity.ModelConfiguration;
 
 namespace Projeto.DAL.Mappings
 {

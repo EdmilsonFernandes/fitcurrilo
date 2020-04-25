@@ -72,14 +72,44 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataSource\Conexao.cs" />
+    <Compile Include="Mappings\RecrutadorMap.cs" />
+    <Compile Include="Mappings\VagaMap.cs" />
+    <Compile Include="Mappings\TecnologiaMap.cs" />
     <Compile Include="Mappings\CurriculoMap.cs" />
     <Compile Include="Mappings\SituacaoMap.cs" />
     <Compile Include="Mappings\CandidatoMap.cs" />
     <Compile Include="Mappings\PerfilMap.cs" />
     <Compile Include="Mappings\UsuarioMap.cs" />
+    <Compile Include="Migrations\202002231545147_AdicionadoTecnologia.cs" />
+    <Compile Include="Migrations\202002231545147_AdicionadoTecnologia.Designer.cs">
+      <DependentUpon>202002231545147_AdicionadoTecnologia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002241116105_AdicionadoVaga.cs" />
+    <Compile Include="Migrations\202002241116105_AdicionadoVaga.Designer.cs">
+      <DependentUpon>202002241116105_AdicionadoVaga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004240439053_AdicaoRecrutador.cs" />
+    <Compile Include="Migrations\202004240439053_AdicaoRecrutador.Designer.cs">
+      <DependentUpon>202004240439053_AdicaoRecrutador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004240518179_AdicionadoRecrutador.cs" />
+    <Compile Include="Migrations\202004240518179_AdicionadoRecrutador.Designer.cs">
+      <DependentUpon>202004240518179_AdicionadoRecrutador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004251246321_AdicionadoRecrutador1.cs" />
+    <Compile Include="Migrations\202004251246321_AdicionadoRecrutador1.Designer.cs">
+      <DependentUpon>202004251246321_AdicionadoRecrutador1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004251333134_ajustarRecrutador.cs" />
+    <Compile Include="Migrations\202004251333134_ajustarRecrutador.Designer.cs">
+      <DependentUpon>202004251333134_ajustarRecrutador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\CurriculoDal.cs" />
     <Compile Include="Persistence\CandidatoDal.cs" />
+    <Compile Include="Persistence\RecrutadorDal.cs" />
+    <Compile Include="Persistence\VagaDal.cs" />
+    <Compile Include="Persistence\TecnologiaDal.cs" />
     <Compile Include="Persistence\SituacaoDal.cs" />
     <Compile Include="Persistence\GenericDal.cs" />
     <Compile Include="Persistence\PerfilDal.cs" />
@@ -96,7 +126,26 @@
       <Name>Projeto.Entities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202002231545147_AdicionadoTecnologia.resx">
+      <DependentUpon>202002231545147_AdicionadoTecnologia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002241116105_AdicionadoVaga.resx">
+      <DependentUpon>202002241116105_AdicionadoVaga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004240439053_AdicaoRecrutador.resx">
+      <DependentUpon>202004240439053_AdicaoRecrutador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004240518179_AdicionadoRecrutador.resx">
+      <DependentUpon>202004240518179_AdicionadoRecrutador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004251246321_AdicionadoRecrutador1.resx">
+      <DependentUpon>202004251246321_AdicionadoRecrutador1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004251333134_ajustarRecrutador.resx">
+      <DependentUpon>202004251333134_ajustarRecrutador.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

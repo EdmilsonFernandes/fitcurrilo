@@ -20,7 +20,7 @@
             {
                 <tr>
                     <td>@item.Nome</td>
-                    <td>@item.DataCadastro</td>
+                    <td>@item.DataCadastro.ToString("dd/MM/yyyy")</td>
                     <td>@item.Tamanho</td>
                     <td>@item.CadastradoPor</td>
                     <td>
@@ -38,3 +38,4 @@
          parent.document.getElementById("iframe1").height = document.getElementById("myDoc").scrollHeight + 35;
      }
 </script>
+<script src="~/Scripts/methods_pt.js"></script>

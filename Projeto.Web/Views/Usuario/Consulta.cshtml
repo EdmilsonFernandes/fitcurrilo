@@ -11,7 +11,11 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Lista de Usuários Cadastrados no Sistema</h3>
+                    <h3 class="box-title">Lista de Usuários cadastrados no sistema</h3>
+                </div>
+                <div class="box-body">
+                    <a href="/Usuario/Cadastro" class="btn btn-default">Adicionar Usuário</a>
+                    <button type="button" class="btn btn-default btn-toggle" data-element="#divFiltros">Filtrar Usuário</button>
                 </div>
                 @if (TempData["Sucesso"] != null)
                 {
@@ -26,10 +30,9 @@
                     </div>
                 }
             </div>
-            <div class="box">
+            <div id="divFiltros" style="display:none" class="box">
                 <div class="box-header">
                     <div class="form-group">
-
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         @Html.Label("Filtro por Nome", htmlAttributes: new { @class = "control-label col-md-1" })
@@ -53,7 +56,7 @@
                 </div>
             </div>
             <div class="box">
-                <table class="table table-bordered table-striped" >
+                <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -80,5 +83,5 @@
         </div>
     </div>
 }
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="~/Scripts/jqueryFitCurriculos.js"></script>

@@ -1,12 +1,7 @@
-﻿using Projeto.Entities;
-using System;
+﻿using Projeto.DAL.DataSource;
+using Projeto.Entities;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Projeto.DAL.DataSource;
-using System.Web;
-using Projeto.DAL.Persistence; //acesso a banco..
 using System.Web.Mvc;
 
 namespace Projeto.DAL.Persistence
@@ -32,11 +27,11 @@ namespace Projeto.DAL.Persistence
         {
             Conexao con = new Conexao();
             List<SelectListItem> listaPerfil = (from tbPerfil in con.Perfil.AsEnumerable()
-                                                 select new SelectListItem
-                                                 {
-                                                     Text = tbPerfil.Nome,
-                                                     Value = tbPerfil.IdPerfil.ToString()
-                                                 }).ToList();
+                                                select new SelectListItem
+                                                {
+                                                    Text = tbPerfil.Nome,
+                                                    Value = tbPerfil.IdPerfil.ToString()
+                                                }).ToList();
             return listaPerfil;
         }
 

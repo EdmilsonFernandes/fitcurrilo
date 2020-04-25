@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Newtonsoft.Json; //JSON..
+using Projeto.DAL.DataSource;
+using Projeto.DAL.Persistence; //acesso a banco..
+using Projeto.Entities; //entidades..
+using Projeto.Util; //criptografia..
+using Projeto.Web.Models; //classes de modelo..
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Projeto.Web.Models; //classes de modelo..
 using System.Web.Security;
-using Projeto.Entities; //entidades..
-using Projeto.DAL.Persistence; //acesso a banco..
-using Projeto.Util; //criptografia..
-using Newtonsoft.Json; //JSON..
-using Projeto.DAL.DataSource;
 
 namespace Projeto.Web.Controllers
 {
@@ -21,7 +21,6 @@ namespace Projeto.Web.Controllers
             {
                 return RedirectToAction("Index", " ");
             }
-
             return View();
         }
 
@@ -77,7 +76,7 @@ namespace Projeto.Web.Controllers
 
             try
             {
-                List < Usuario > listaUsuarios = uDal.ListarUsuarios();
+                List<Usuario> listaUsuarios = uDal.ListarUsuarios();
                 foreach (var usuario in listaUsuarios)
                 {
                     var uView = new UsuarioViewModel();
@@ -132,7 +131,7 @@ namespace Projeto.Web.Controllers
 
             UsuarioViewModel uView = new UsuarioViewModel();
             PerfilDal pDal = new PerfilDal();
-            
+
 
             uView.Id = usuario.IdUsuario;
             uView.Nome = usuario.Nome;
@@ -179,7 +178,7 @@ namespace Projeto.Web.Controllers
                     }
                     else
                     {
-                       TempData["Falha"] = "Acesso Negado. Tente novamente";
+                        TempData["Falha"] = "Acesso Negado. Tente novamente";
                     }
                     //ViewBag.Mensagem = "Acesso Negado.Tente novamente";
                 }
@@ -213,7 +212,7 @@ namespace Projeto.Web.Controllers
                 {
                     foreach (var usuario in listaUsuarios.Where(tbUsuario => tbUsuario.Nome.Contains(buscaNome)))
                     {
-   
+
 
                         uView.Id = usuario.IdUsuario;
                         uView.Nome = usuario.Nome;
@@ -270,12 +269,12 @@ namespace Projeto.Web.Controllers
                     usuario.Login = model.Login;
                     usuario.Senha = Criptografia.EncryptMD5(model.Senha);
                     usuario.IdPerfil = int.Parse(model.Perfil);
-                    
+
                     // Gravar no Banco de Dados               
                     uDal.Insert(usuario);
 
                     TempData["Sucesso"] = "Usuário cadastrado com sucesso";
-                    
+
                     // Limpar os campos do formulário
                     ModelState.Clear();
                 }
@@ -313,7 +312,7 @@ namespace Projeto.Web.Controllers
                 {
                     UsuarioDal uDal = new UsuarioDal();
                     Usuario usuario = uDal.FindById(model.Id);
-                    
+
                     if (Criptografia.EncryptMD5(model.SenhaAntiga).Equals(usuario.Senha))
                     {
                         usuario.Senha = Criptografia.EncryptMD5(model.SenhaNova);
@@ -362,7 +361,7 @@ namespace Projeto.Web.Controllers
             }
 
             var auth = JsonConvert.DeserializeObject<UsuarioAutenticado>(HttpContext.User.Identity.Name);
-            
+
             // Usuário Não pode excluir sua própria conta
             if (usuario.Login.Equals(auth.Login))
             {

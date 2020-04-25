@@ -1,11 +1,8 @@
-﻿using Projeto.Entities;
-using System;
+﻿using Projeto.DAL.DataSource;
+using Projeto.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Projeto.DAL.DataSource;
 using System.Data.Entity; //entityframework..
+using System.Linq;
 
 
 namespace Projeto.DAL.Persistence
@@ -37,7 +34,7 @@ namespace Projeto.DAL.Persistence
                 return con.Usuario
                         .Include(u => u.Perfil) //INNER JOIN..
                         .Where(u => u.Login.Equals(login)
-                                 && u.Senha.Equals(senha))                        
+                                 && u.Senha.Equals(senha))
                         .FirstOrDefault();
             }
         }
@@ -46,7 +43,7 @@ namespace Projeto.DAL.Persistence
         public List<Usuario> ListarUsuarios()
         {
             Conexao con = new Conexao();
-            
+
             var listaUsuario = new List<Usuario>();
 
             var query = from tbUsuario in con.Usuario

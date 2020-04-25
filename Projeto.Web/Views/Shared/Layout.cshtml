@@ -142,12 +142,28 @@
 
                             <li id="left-sidebar-menu-forms">
                                 <a href="#">
+                                    <i class="fa fa-user"></i> <span>Recrutador</span>
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="left-sidebar-menu-forms-advanced"><a href="@Url.Action("Consulta", "Recrutador")"><i class="fa fa-list"></i> Listar Recrutadores</a></li>
+                                    <li id="left-sidebar-menu-forms-general"><a href="@Url.Action("Cadastro", "Recrutador")"> <i class="fa fa-user-plus"></i> Adicionar Recrutador</a></li>
+                                </ul>
+                            </li>
+
+                            <li id="left-sidebar-menu-forms">
+                                <a href="#">
                                     <i class="fa fa-table"></i> <span>Tabelas do Sistema</span>
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
                                 <ul class="treeview-menu">
                                     <li id="left-sidebar-menu-forms-advanced"><a href="@Url.Action("Consulta", "Situacao")"><i class="fa fa-circle-o"></i> Situações</a></li>
                                 </ul>
+                                <!--
+                                <ul class="treeview-menu">
+                                    <li id="left-sidebar-menu-forms-advanced"><a href="@Url.Action("Consulta", "Tecnologia")"><i class="fa fa-circle-o"></i> Tecnologias</a></li>
+                                </ul>
+                                -->
                             </li>
                         }
 
@@ -163,6 +179,18 @@
                                 <li id="left-sidebar-menu-forms-general"><a href="@Url.Action("Cadastro", "Candidato")"><i class="fa fa-user-plus"></i> Adicionar Candidato </a></li>
                             </ul>
                         </li>
+                        <!--
+            <li id="left-sidebar-menu-forms" class="treeview">
+                <a href="#">
+                    <i class="fa fa-square-o"></i> <span>Vaga</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li id="left-sidebar-menu-forms-advanced"><a href="@Url.Action("Consulta", "Vaga")"><i class="fa fa-list"></i> Listar Vagas</a></li>
+                    <li id="left-sidebar-menu-forms-general"><a href="@Url.Action("Cadastro", "Vaga")"><i class="fa fa-plus-square-o"></i> Adicionar Vaga</a></li>
+                </ul>
+            </li>
+        -->
                     }
                     <li id="left-sidebar-menu-documentation">
                         <a href="@Url.Action("Sobre", "Home")">
@@ -171,28 +199,28 @@
                         </a>
                     </li>
                 </ul>
-            </section>
-        </aside>
+                    </section>
+                </aside>
 
-        <div class="content-wrapper">
-            <section class="content">
-                @RenderBody()
-            </section>
-        </div>
-        <aside class="control-sidebar control-sidebar-dark">
-            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-                <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-            </ul>
-        </aside>
-    </div>
-    <script src="~/AdminLTE/plugins/jquery/js/jQuery-2.1.4.min.js"></script>
-    @RenderSection("menu", required: false)
-    <script src="~/AdminLTE/bootstrap/js/bootstrap.js"></script>
-    <script src="~/AdminLTE/plugins/slimscroll/js/jquery.slimscroll.js"></script>
-    <script src="~/AdminLTE/plugins/fastclick/js/fastclick.js"></script>
-    <script src="~/Scripts/Shared/_Layout.js"></script>
-    <script src="~/AdminLTE/dist/js/app.js"></script>
-    @RenderSection("scripts", required: false)
-</body>
-</html>
+                <div class="content-wrapper">
+                    <section class="content">
+                        @RenderBody()
+                    </section>
+                </div>
+                <aside class="control-sidebar control-sidebar-dark">
+                    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+                        <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                        <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+                    </ul>
+                </aside>
+            </div>
+            <script src="~/AdminLTE/plugins/jquery/js/jQuery-2.1.4.min.js"></script>
+            @RenderSection("menu", required: false)
+            <script src="~/AdminLTE/bootstrap/js/bootstrap.js"></script>
+            <script src="~/AdminLTE/plugins/slimscroll/js/jquery.slimscroll.js"></script>
+            <script src="~/AdminLTE/plugins/fastclick/js/fastclick.js"></script>
+            <script src="~/Scripts/Shared/_Layout.js"></script>
+            <script src="~/AdminLTE/dist/js/app.js"></script>
+            @RenderSection("scripts", required: false)
+        </body>
+        </html>

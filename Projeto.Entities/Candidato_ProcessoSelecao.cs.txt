@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Projeto.Entities
+{
+    public class Candidato_ProcessoSelecao
+    {
+        public int Id { get; set; }
+
+        public DateTime DataCadastro { get; set; }
+        public DateTime DataAtualizacao { get; set; }
+        public string CadastradoPor { get; set; }
+        public string AtualizadoPor { get; set; }
+
+        #region Relacionamentos
+        public int IdProcessoSelecao { get; set; }
+        public int IdCandidato { get; set; }
+        #endregion
+    }
+}

@@ -43,6 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Tecnologia_Vaga.cs.txt" />
+    <Content Include="Tecnologia_Candidato.cs.txt" />
+    <Content Include="Candidato_ProcessoSelecao.cs.txt" />
+    <Compile Include="Recrutador.cs" />
+    <Compile Include="Vaga.cs" />
+    <Compile Include="ProcessoSelecao.cs" />
+    <Compile Include="Tecnologia.cs" />
     <Compile Include="Curriculo.cs" />
     <Compile Include="Situacao.cs" />
     <Compile Include="Candidato.cs" />

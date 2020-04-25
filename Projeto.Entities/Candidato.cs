@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Projeto.Entities
 {
@@ -13,6 +10,7 @@ namespace Projeto.Entities
         public string GrauInstrucao { get; set; }
         public int QtdeCertificados { get; set; }
         public string Situacao { get; set; }
+        public string Recrutador { get; set; }
         public DateTime DataCadastro { get; set; }
         public DateTime DataAtualizacao { get; set; }
         public string CadastradoPor { get; set; }

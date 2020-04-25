@@ -1,10 +1,6 @@
 ﻿using Projeto.DAL.DataSource;
 using Projeto.Entities;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Projeto.DAL.Persistence
 {
@@ -17,6 +13,16 @@ namespace Projeto.DAL.Persistence
             {
                 return con.Candidato
                         .Where(c => c.Nome == nomeCandidato)
+                        .Count() > 0;
+            }
+        }
+
+        public bool NomeParecido(string nomeCandidato)
+        {
+            using (Conexao con = new Conexao())
+            {
+                return con.Candidato
+                        .Where(c => c.Nome.Contains(nomeCandidato.Substring(0,8)))
                         .Count() > 0;
             }
         }
